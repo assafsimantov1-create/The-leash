@@ -93,14 +93,16 @@ footer{padding:30px 0 100px;font-size:14px;text-align:center}footer a{margin:0 8
 <script>
 /* ===== Settings: fill these in ===== */
 var GUMROAD_URL="https://restiq45.gumroad.com/l/rpiuho";      // e.g. https://restiq45.gumroad.com/l/xxxxx
-var TIKTOK_PIXEL_ID="";  // from TikTok Events Manager
+var META_PIXEL_ID="973312438550119";
+var TIKTOK_PIXEL_ID="DBM545JC77U4J2JQVCPG";
 var REVIEWS=[];          // real buyer reviews only: {name:"Sam",text:"..."}
 /* =================================== */
-if(TIKTOK_PIXEL_ID){!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.load=function(e){var s=d.createElement("script");s.async=1;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;d.head.appendChild(s)};ttq.load(TIKTOK_PIXEL_ID);ttq.page()}(window,document,"ttq")}
+if(META_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',META_PIXEL_ID);fbq('track','PageView');fbq('track','ViewContent',{content_name:'The Loose Leash Plan',value:24,currency:'USD'})}
+if(TIKTOK_PIXEL_ID){!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.load=function(e){var s=d.createElement("script");s.async=1;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;d.head.appendChild(s)};ttq.load(TIKTOK_PIXEL_ID);ttq.page();ttq.track("ViewContent",{contents:[{content_id:"loose-leash-plan",content_type:"product",content_name:"The Loose Leash Plan"}],value:24,currency:"USD"})}(window,document,"ttq")}
 if(GUMROAD_URL){var g=document.createElement("script");g.src="https://gumroad.com/js/gumroad.js";document.head.appendChild(g)}
 document.querySelectorAll(".buy").forEach(function(a){
  if(GUMROAD_URL){a.href=GUMROAD_URL+"?wanted=true";a.setAttribute("data-gumroad-overlay-checkout","true")}
- a.addEventListener("click",function(e){if(window.ttq)ttq.track("InitiateCheckout",{value:24,currency:"USD"});
+ a.addEventListener("click",function(e){if(window.ttq)ttq.track("InitiateCheckout",{contents:[{content_id:"loose-leash-plan",content_type:"product",content_name:"The Loose Leash Plan"}],value:24,currency:"USD"});if(window.fbq)fbq("track","InitiateCheckout",{value:24,currency:"USD"});
   if(!GUMROAD_URL){e.preventDefault();var t=document.getElementById("toast");t.textContent="Checkout isn’t connected yet.";t.style.display="block";setTimeout(function(){t.style.display="none"},2500)}})});
 if(REVIEWS.length){var r=document.getElementById("reviews");r.hidden=false;var h="";REVIEWS.forEach(function(x){var d=document.createElement("div");d.className="rv";d.textContent="“"+x.text+"” "+x.name;h+=d.outerHTML});document.getElementById("rvlist").innerHTML=h}
 /* one motion: the tight leash relaxes */
